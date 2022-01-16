@@ -1,0 +1,346 @@
+﻿@model reservation_de_vol.Models.Vol
+
+@{
+    ViewData["Title"] = "Vols";
+}
+
+
+               
+
+           <!-- banner -->
+<div class="banner" id="home">
+	<div class="agileinfo-dot">
+		<div class="container">
+				<!-- header -->
+				<header>
+					<!-- navigation -->
+					<div class="w3_navigation">
+						<nav class="navbar navbar-default">
+							<div class="navbar-header navbar-left">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<div class="w3_navigation_pos">
+									<h1><a href="index.html"><span>W</span>acky <span>T</span>rip</a></h1>
+								</div>
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+								<nav class="cl-effect-4" id="cl-effect-4">
+									<ul class="nav navbar-nav menu__list">
+										<li><a href="https://localhost:5001/Home">Home</a></li>
+										<li><a href="#about" class=" scroll">About</a></li>
+										<li><a href="#gallery" class=" scroll">Destinations</a></li>
+										<li><a href="#contact" class=" scroll">Contact</a></li>
+									</ul>
+								</nav>
+							</div>
+						</nav>	
+					</div>
+			<div class="clearfix"></div>
+				<!-- //navigation -->
+				</header>
+			<!-- //header -->
+			<!-- banner-text -->
+				<div class="banner-text"> 
+					<h2>Hundreds of Destinations Worldwide</h2>
+					<div class="book-form" id="register">
+					<p>Pick your destination</p>
+					<form asp-controller="Home" asp-action="Result" method="post" style="padding-left: 10%;">
+
+
+							<div class="col-md-5 form-time-w3layouts">
+									<label>Travelling From</label>
+									<input type="text" name="departure" class="city1" value="Tape la ville de départ"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tape la ville de départ';}" required="">
+							</div>
+							<div class="col-md-5 form-time-w3layouts">
+								<label>Travelling To</label>
+								<input type="text" name="arrival" class="city2" value="Tape la ville d arrivé"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tape la ville d arrivé';}" required="">
+						</div>
+							
+							<div class="col-md-5 form-date-w3-agileits">
+										<label>Departure Date</label>
+											<input  id="datepicker1" name="flight_date_d" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+							</div>
+							<div class="col-md-5 form-date-w3-agileits date_retour ">
+								<label>Return Date</label>
+									<input  id="datepicker2" name="flight_date_a" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required="">
+							</div>
+
+							<div class="col-md-5  form-left-agileits-w3layouts ">
+									<label>Class</label>
+									<select class="form-control" name="travel_class">
+										<option value="ECONOMY">Economy class</option>
+										<option value="PREMIUM_ECONOMY">Premium Economy class</option>
+										<option value="BUSINESS">Business class</option>
+										<option value="FIRST">First class</option>
+									</select>
+							</div> 
+
+							<div class="col-md-5 form-left-agileits-w3layouts " style="margin-bottom: 2%;">
+								<label>Non Stop</label>
+								<select class="form-control" name="non_stop">
+									<option value="false">flight with layovers</option>
+									<option value="true">flight without layovers</option>
+								</select>
+							</div>
+
+							<div class="col-md-4 form-left-agileits-w3layouts " style="margin-bottom: 2%;">
+								<label>Adulte (18+)</label>
+								<select class="form-control" name="adults">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+								</select>
+							</div>
+
+							<div class="col-md-3 form-left-agileits-w3layouts " style="margin-bottom: 2%;">
+								<label>Jeune (2-17)</label>
+								<select class="form-control" name="children" >
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+								</select>
+							</div>
+
+							<div class="col-md-3 form-left-agileits-w3layouts " style="margin-bottom: 2%;">
+								<label>Enfant (0-2)</label>
+								<select class="form-control" name="infants">
+									<option value="0">0</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+								</select>
+							</div>
+
+							<div class="col-md-3 form-left-agileits-submit">
+								<input type="submit" value="Search Flights">
+							</div>
+
+							<p style="width: 400px;">
+								<label for="roundtrip">
+									<input type="radio" id="roundtrip" onclick="$('.date_retour').removeClass('d-none')" class="resp-tab-item" name="flight_type" value="Roundtrip" checked>
+									<span></span>Roundtrip
+								</label>
+								<label for="one way" style="float: right;">
+									<input type="radio" id="one-way" class="resp-tab-item" onclick="$('.date_retour').addClass('d-none')" name="flight_type" value="One way">
+									<span></span>One way
+								</label>  
+							</p>
+
+						</form>
+						<div class="clearfix"></div>
+					</div>
+					<div class="banner-btm-agileits">
+						<div class="col-md-4 bann-left-w3-agile">
+							<h3><span>24/7</span>Support</h3>
+						</div>
+						<div class="col-md-4 button-agileits">
+							<a href="#contact" class="hvr-ripple-out scroll">Get in touch</a>
+						</div>
+						<div class="col-md-4 bann-right-wthree">
+							<i class="fa fa-envelope-o" aria-hidden="true" style="position: relative;left: -45px;"></i>
+							<a href="mailto:info@example.com">ensate@etu.uae.ac.ma</a>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+
+<!-- //banner -->
+<!-- about -->
+<!-- banner-bottom -->
+	<div class="about" id="about">
+			<div class="col-md-6 banner_bottom_right">
+				<div class="wthree_banner_bottom_right_grids">
+					<div class="col-md-6 banner_bottom_right_grid">
+						<div class="view view-tenth color1-w3">
+							<div class="agile_text_box">
+								<h3>More Than 7M Visitors Each Month</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adip.</p>
+							</div>
+							<div class="mask">
+								<img src="~/images/a1.jpg" class="img-responsive" alt="" />
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 banner_bottom_right_grid one-w3ls">
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="wthree_banner_bottom_right_grids">
+					<div class="col-md-6 banner_bottom_right_grid two-w3ls">
+					</div>
+					<div class="col-md-6 banner_bottom_right_grid">
+						<div class="view view-tenth color2-w3">
+							<div class="agile_text_box">
+								<h3>Fast and Reliable Ticket Booking</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adip.</p>
+							</div>
+							<div class="mask">
+								<img src="~/images/a4.jpg" class="img-responsive" alt="" />
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="col-md-6 banner_bottom_left">
+				<h3 class="title-agileits-w3layouts white-w3ls">Welcome to Wacky Trip</h3>
+				<h4>A few words about us</h4>
+				<p class="para-w3l">Quis nostrum exercitationem ullam corporis suscipit 
+					laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure 
+					reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, 
+					vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+				<div class="button-agileits">
+					<a href="#register" class="hvr-ripple-out destination-w3ls scroll">Register</a>
+					<a href="#" class="hvr-ripple-out" data-toggle="modal" data-target="#myModal2">Read More</a>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+	</div>
+<!-- banner-bottom -->
+<!-- Modal2 -->
+						<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+							<div class="modal-dialog">
+							<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4>Wacky Trip</h4>
+										<img src="~/images/banner.jpg" alt=" " class="img-responsive">
+										<h5>More Than 7M Visitors Each Month</h5>
+										<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+<!-- //Modal2 -->
+<!-- //about -->
+				<!-- services -->
+				<div class="services" id="services">
+					<div class="container">
+					<h3 class="title-agileits-w3layouts">How to find the path to your dream trip</h3>
+					<div class="col-md-7 services-left-agileinfo">
+						<div class="profile-pic-w3ls ">
+							<div  style="display: flex;">
+								<div >
+									<div class="pic-w3layouts">
+										<img src="~/images/prof2.jpg" alt="Image">
+									</div>
+										<h5>AMINE ELALAOUI<span>Co-Founder</span></h5>
+								</div>
+								<div>
+										<div class="pic-w3layouts">
+											<img src="~/images/prof1.jpeg" alt="Image">
+										</div>
+										<h5>ELOUD TARIK<span>Co-Founder</span></h5>
+								</div>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu sollicitudin metus. Donec quis mauris velit. Praesent eu faucibus enim. Class aptent taciti sociosqu ad litora torquent per conubia nostra,</p>
+						</div> 
+						
+						<div class="clearfix"> </div>
+					</div>
+					<div class="col-md-5 services-right-agileits">
+						<div class="services-services">
+							<div class="services-grids">
+								<h6>Air flights</h6>
+							</div>
+							<div class="services-grids">
+								<h6>Travel guides</h6>
+							</div>
+							<div class="services-grids">
+								<h6>travel insurance</h6>
+							</div>
+							<div class="services-grids">
+								<h6>destinations</h6>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					</div>
+				</div>
+<!-- //services -->
+
+
+
+
+		<!-- testimonials -->
+		<div class="testimonials" id="testimonials">
+			<div class="container">
+			<h3 class="title-agileits-w3layouts white-w3ls">Trusted Customers</h3>
+				<div class="w3_testimonials_grids">
+					<section class="slider_test_monials">
+						<div class="flexslider">
+							<ul class="slides">
+								<li>
+									<div class="w3_testimonials_grid_left">
+										<p>" Morbi cursus, turpis quis laoreet blandit, odio turpis imperdiet nisl, 
+											quis bibendum lorem purus lobortis nunc. Suspendisse tincidunt eu sapien 
+											pellentesque interdum. Aenean lacus sapien, blandit vel nibh in, imperdiet 
+											egestas erat.</p>
+									</div>
+									<div class="w3_testimonials_grid_right">
+										<img src="~/images/test1.jpg" alt=" " class="img-responsive" />
+									</div>
+									
+								</li>
+								<li>
+									<div class="w3_testimonials_grid_left">
+										<p>" Morbi cursus, turpis quis laoreet blandit, odio turpis imperdiet nisl, 
+											quis bibendum lorem purus lobortis nunc. Suspendisse tincidunt eu sapien 
+											pellentesque interdum. Aenean lacus sapien, blandit vel nibh in, imperdiet 
+											egestas erat.</p>
+									</div>
+									<div class="w3_testimonials_grid_right">
+										<img src="~/images/test2.jpg" alt=" " class="img-responsive" />
+									</div>
+								</li>
+								<li>
+									<div class="w3_testimonials_grid_left">
+										<p>" Morbi cursus, turpis quis laoreet blandit, odio turpis imperdiet nisl, 
+											quis bibendum lorem purus lobortis nunc. Suspendisse tincidunt eu sapien 
+											pellentesque interdum. Aenean lacus sapien, blandit vel nibh in, imperdiet 
+											egestas erat.</p>
+									</div>
+									<div class="w3_testimonials_grid_right">
+										<img src="~/images/test3.jpg" alt=" " class="img-responsive" />
+									</div>
+								</li>
+								<li>
+									<div class="w3_testimonials_grid_left">
+										<p>" Morbi cursus, turpis quis laoreet blandit, odio turpis imperdiet nisl, 
+											quis bibendum lorem purus lobortis nunc. Suspendisse tincidunt eu sapien 
+											pellentesque interdum. Aenean lacus sapien, blandit vel nibh in, imperdiet 
+											egestas erat.</p>
+									</div>
+									<div class="w3_testimonials_grid_right">
+										<img src="~/images/test4.jpg" alt=" " class="img-responsive" />
+									</div>
+								</li>
+							</ul>
+						</div>
+					</section>
+					</div>
+					</div>
+		</div>
+		<!-- //testimonials -->	

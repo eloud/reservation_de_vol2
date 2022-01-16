@@ -1,0 +1,77 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/amineelalaoui/Desktop/reservation_de_vol2/reservation_de_vol/reservation_de_vol.csproj": {}
+  },
+  "projects": {
+    "/Users/amineelalaoui/Desktop/reservation_de_vol2/reservation_de_vol/reservation_de_vol.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/amineelalaoui/Desktop/reservation_de_vol2/reservation_de_vol/reservation_de_vol.csproj",
+        "projectName": "reservation_de_vol",
+        "projectPath": "/Users/amineelalaoui/Desktop/reservation_de_vol2/reservation_de_vol/reservation_de_vol.csproj",
+        "packagesPath": "/Users/amineelalaoui/.nuget/packages/",
+        "outputPath": "/Users/amineelalaoui/Desktop/reservation_de_vol2/reservation_de_vol/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/amineelalaoui/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[3.1.22, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.404/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
